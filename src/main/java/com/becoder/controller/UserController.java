@@ -23,14 +23,19 @@ public class UserController {
     private void userDetails(Model m, Principal p) {
         String email = p.getName();
         UserDtls user = userRepo.findByEmail(email);
-
         m.addAttribute("user", user);
 
     }
 
     @GetMapping("/")
-    public String home() {
+    public String home(){
         return "user/home";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboard(){
+        return "user/dashboard";
+    }
+
 
 }
